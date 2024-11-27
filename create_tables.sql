@@ -2,48 +2,48 @@
 -- Creating Customers Table
 CREATE TABLE Customers (
     CustomerID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT NOT NULL,
-    Phone TEXT NOT NULL,
-    Address TEXT NOT NULL
+    Name TEXT ,
+    Phone TEXT ,
+    Address TEXT 
 );
 
 -- Creating Orders Table
 CREATE TABLE Orders (
     OrderID INTEGER PRIMARY KEY AUTOINCREMENT,
-    CustomerID INTEGER NOT NULL,
-    OrderDate TEXT NOT NULL,
-    TotalAmount REAL NOT NULL,
+    CustomerID INTEGER ,
+    OrderDate TEXT ,
+    TotalAmount REAL ,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
 -- Creating Pizzas Table
 CREATE TABLE Pizzas (
     PizzaID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT NOT NULL,
-    Size TEXT NOT NULL,
+    Name TEXT ,
+    Size TEXT ,
     Price REAL NOT NULL
 );
 
 -- Creating Ingredients Table
 CREATE TABLE Ingredients (
     IngredientID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT NOT NULL,
-    Category TEXT NOT NULL
+    Name TEXT ,
+    Category TEXT 
 );
 
 -- Creating Suppliers Table
 CREATE TABLE Suppliers (
     SupplierID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT NOT NULL,
-    ContactInfo TEXT NOT NULL,
-    Address TEXT NOT NULL
+    Name TEXT ,
+    ContactInfo TEXT ,
+    Address TEXT
 );
 
 -- Creating Order_Items Table (Many-to-Many relationship between Orders and Pizzas)
 CREATE TABLE Order_Items (
-    OrderID INTEGER NOT NULL,
-    PizzaID INTEGER NOT NULL,
-    Quantity INTEGER NOT NULL,
+    OrderID INTEGER ,
+    PizzaID INTEGER ,
+    Quantity INTEGER ,
     Subtotal REAL NOT NULL,
     PRIMARY KEY (OrderID, PizzaID),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
@@ -52,8 +52,8 @@ CREATE TABLE Order_Items (
 
 -- Creating Pizza_Ingredients Table (Many-to-Many relationship between Pizzas and Ingredients)
 CREATE TABLE Pizza_Ingredients (
-    PizzaID INTEGER NOT NULL,
-    IngredientID INTEGER NOT NULL,
+    PizzaID INTEGER,
+    IngredientID INTEGER ,
     PRIMARY KEY (PizzaID, IngredientID),
     FOREIGN KEY (PizzaID) REFERENCES Pizzas(PizzaID),
     FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID)
