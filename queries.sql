@@ -8,8 +8,8 @@ SET @last_order_id = LAST_INSERT_ID();
 
 
 INSERT INTO Order_Items (OrderID, PizzaID, Quantity, Subtotal) 
-VALUES (@last_order_id, 1, 1, 12.50),  -- Margherita pizza
-       (@last_order_id, 2, 1, 12.50);  -- Pepperoni pizza
+VALUES (@last_order_id, 1, 1, 22.50),  -- Margherita pizza
+       (@last_order_id, 2, 1, 12.50);  
 
 
 SELECT o.OrderID, c.Name AS CustomerName, p.Name AS PizzaName, oi.Quantity, oi.Subtotal
